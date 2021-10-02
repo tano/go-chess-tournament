@@ -2,7 +2,6 @@ package core
 
 import (
 	"errors"
-	"fmt"
 	"math/rand"
 	"time"
 )
@@ -35,9 +34,7 @@ func participantsAreOK(participants []string) bool {
 func shuffle(participants *[]string) {
 	rand.Seed(time.Now().UnixNano())
 	temp := *participants
-	fmt.Printf("data before shuffle: %v\n", *participants)
 	rand.Shuffle(len(temp), func(i, j int) {
 		(*participants)[i], (*participants)[j] = (*participants)[j], (*participants)[i]
 	})
-	fmt.Printf("data after shuffle: %v\n", *participants)
 }
